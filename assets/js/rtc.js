@@ -122,23 +122,22 @@ window.addEventListener('load', () => {
 
             if (screen && screen.getTracks().length) {
                 screen.getTracks().forEach((track) => {
-                    pc[partnerName].addTrack(track, screen);//should trigger negotiationneeded event
+                    pc[partnerName].addTrack(track, screen);
                 });
             }
 
             else if (myStream) {
                 myStream.getTracks().forEach((track) => {
-                    pc[partnerName].addTrack(track, myStream);//should trigger negotiationneeded event
+                    pc[partnerName].addTrack(track, myStream);
                 });
             }
 
             else {
                 h.getUserFullMedia().then((stream) => {
-                    //save my stream
                     myStream = stream;
 
                     stream.getTracks().forEach((track) => {
-                        pc[partnerName].addTrack(track, stream);//should trigger negotiationneeded event
+                        pc[partnerName].addTrack(track, stream);
                     });
 
                     h.setLocalStream(stream);
