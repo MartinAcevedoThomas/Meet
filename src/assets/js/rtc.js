@@ -389,47 +389,5 @@ window.addEventListener('load', () => {
                 shareScreen();
             }
         });
-
-        document.getElementById('record').addEventListener('click', (e) => {
-            if (!mediaRecorder || mediaRecorder.state == 'inactive') {
-                h.toggleModal('recording-options-modal', true);
-            }
-
-            else if (mediaRecorder.state == 'paused') {
-                mediaRecorder.resume();
-            }
-
-            else if (mediaRecorder.state == 'recording') {
-                mediaRecorder.stop();
-            }
-        });
-
-        document.getElementById('record-screen').addEventListener('click', () => {
-            h.toggleModal('recording-options-modal', false);
-
-            if (screen && screen.getVideoTracks().length) {
-                startRecording(screen);
-            }
-
-            else {
-                h.shareScreen().then((screenStream) => {
-                    startRecording(screenStream);
-                }).catch(() => { });
-            }
-        });
-
-        document.getElementById('record-video').addEventListener('click', () => {
-            h.toggleModal('recording-options-modal', false);
-
-            if (myStream && myStream.getTracks().length) {
-                startRecording(myStream);
-            }
-
-            else {
-                h.getUserFullMedia().then((videoStream) => {
-                    startRecording(videoStream);
-                }).catch(() => { });
-            }
-        });
     }
 });

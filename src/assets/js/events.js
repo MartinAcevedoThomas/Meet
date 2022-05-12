@@ -81,7 +81,5 @@ window.addEventListener('load', () => {
             helpers.singleStreamToggleMute(e);
         }
     });
-    document.getElementById('closeModal').addEventListener('click', () => {
-        helpers.toggleModal('recording-options-modal', false);
-    });
+
 });
